@@ -6,6 +6,9 @@ import store from './store'
 import './styles/index.less'
 // amfe-flexible用于设置 rem 基准值
 import 'amfe-flexible'
+// 导入格式化日式
+import '@/utils/dayjs'
+
 
 // 导入vant
 import Vant from 'vant'

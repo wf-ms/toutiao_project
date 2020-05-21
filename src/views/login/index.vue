@@ -2,7 +2,9 @@
   <div class="login-container">
     <!-- 导航区域 -->
     <!-- page-nav-bar在全局样式中,设置标题栏样式 -->
-    <van-nav-bar class="page-nav-bar" title="登录"/>
+    <van-nav-bar class="page-nav-bar" title="登录">
+      <van-icon slot="left" name="cross" @click="$router.back()"></van-icon>
+    </van-nav-bar>
 
     <!-- 表单提交区域 -->
     <van-form @submit="onSubmit" ref="loginForm">
@@ -99,6 +101,7 @@ export default {
         console.log("登录成功", res);
         this.$store.commit("setUser", res.data);
         this.$toast.success("登录成功");
+        this.$router.back();
       } catch (err) {
         if (err.response.status === 400) {
           console.log("手机号或验证码错误", err);
